@@ -8,16 +8,8 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['id', 'username', 'password', 'name', 'email','document','tipo_documento' ]
 
     def create(self, validated_data):
-        user = User(
-            username=validated_data['username'],
-            name=validated_data['name'],
-            email=validated_data['email'],
-            document=validated_data['document'],
-            tipo_documento=validated_data['tipo_documento'],
-        )
-        user.set_password(validated_data['password'])
-        user.save()
-        return user
+        return User.objects.create(**validated_data)
+        
     
     def to_representation(self, instance):
         return {

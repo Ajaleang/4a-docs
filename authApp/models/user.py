@@ -33,7 +33,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     name = models.CharField('Name', max_length = 30)
     email = models.EmailField('Email', max_length = 100)
     document = models.IntegerField('Document', unique=True)
-    tipo_documento = models.BooleanField()
+    tipo_documento = models.CharField('Tipo Document', max_length = 2)
 
     def save(self, **kwargs):
         some_salt = 'mMUj0DrIK6vgtdIYepkIxN' 
