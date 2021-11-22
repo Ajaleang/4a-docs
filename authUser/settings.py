@@ -26,8 +26,8 @@ SECRET_KEY = 'django-insecure-$u4sg3giq7zbepnmmq3(6mo$e#asdl#v+h)-2%3(5sx3#-2a4!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-CORS_ALLOW_ALL_ORIGINS = True
+
+
 
 
 # Application definition
@@ -41,14 +41,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'authApp',
-    'corsheaders',
+    
     
 ]
 SIMPLE_JWT = {
 'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
 'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 'ROTATE_REFRESH_TOKENS': False,
-'BLACKLIST_AFTER_ROTATION': True,
+'BLACKLIST_AFTER_ROTATION':False,
 'UPDATE_LAST_LOGIN': False,
 'ALGORITHM': 'HS256',
 'USER_ID_FIELD': 'id',
@@ -63,7 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "corsheaders.middleware.CorsMiddleware",
+    
 ]
 REST_FRAMEWORK = {
 'DEFAULT_PERMISSION_CLASSES': (
@@ -102,10 +102,10 @@ WSGI_APPLICATION = 'authUser.wsgi.application'
 DATABASES = {
 'default': {
 'ENGINE': 'django.db.backends.postgresql_psycopg2',
-'NAME': 'd7mskg95s0ia5d',
-'USER': 'jryrsaaiadgrqk',
-'PASSWORD': '0782601b9414a9f8fa63116429e8075da680a959ffed6f4417c6dc1ff8939cb5',
-'HOST': 'ec2-3-92-15-1.compute-1.amazonaws.com',
+'NAME': 'd670maq28g4f3d',
+'USER': 'hxhqqfvjruguzd',
+'PASSWORD': 'e2dc7a70d5f3fda88e46a6b397914df152a24858169518e1dc5836d0bcd4fc70',
+'HOST': 'ec2-52-20-143-167.compute-1.amazonaws.com',
 'PORT': '5432',
 }
 }
@@ -153,3 +153,6 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import django_heroku
+django_heroku.settings(locals())
