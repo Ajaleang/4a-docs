@@ -3,6 +3,7 @@ import com.farmaTic.InventarioMS.exceptions.ProductoNotFoundException;
 import com.farmaTic.InventarioMS.models.Producto;
 import com.farmaTic.InventarioMS.repositories.ProductoRepository;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,14 +18,19 @@ public class ProductoController {
     }
 
     @GetMapping("/producto/{id}")
-    Producto getProducto(@PathVariable String id) {
-        return ProductoRepository.findById(id)
-                .orElseThrow(() -> new ProductoNotFoundException(id));
+    Producto getProducto(@PathVariable String nombreMedicamento) {
+        return ProductoRepository.findById(nombreMedicamento)
+                .orElseThrow(() -> new ProductoNotFoundException(nombreMedicamento));
     }
     
-    @PostMapping("/productos")
+    @PostMapping("/producto")
     Producto nuevoProducto(@RequestBody Producto producto) {
         return ProductoRepository.save(producto);
+    }
+
+    @DeleteMapping("/producto/{id}")
+    void deleteProducto(@PathVariable String id) {
+        ProductoRepository.deleteById(id);
     }
   
     

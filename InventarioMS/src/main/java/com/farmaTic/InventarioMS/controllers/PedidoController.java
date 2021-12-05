@@ -18,4 +18,8 @@ public class PedidoController {
     Pedido nuevoPedido(@RequestBody Pedido pedido) {
         return pedidoRepository.save(pedido);
     }
+    @DeleteMapping("/pedidos/{id}")
+    void borrarPedido(@PathVariable String id) {
+        pedidoRepository.deleteById(id);
+    }
 }    
