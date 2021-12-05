@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ControllerAdvice
 @ResponseBody
 
-public class InventarioNotFoundAdvice {
+public class ProductoNotFoundAdvice {
     @ResponseBody
-    @ExceptionHandler(InventarioNotFoundException.class)
+    @ExceptionHandler(ProductoNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    String EntintyNotFoundAdvice(InventarioNotFoundException ex) {
+    String EntintyNotFoundAdvice(ProductoNotFoundException ex) {
         return ex.getMessage();
     }
 }
