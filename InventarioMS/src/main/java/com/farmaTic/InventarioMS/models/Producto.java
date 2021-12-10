@@ -6,8 +6,8 @@ import java.util.Date;
 public class Producto{
     @Id
     private String id;
-    private String laboratorio;
     private String nombreMedicamento;
+    private String laboratorio;
     private String concentracion;
     private String presentacion;
     private Integer cantidad;
@@ -27,6 +27,9 @@ public class Producto{
         this.fechaFabricacion = fechaFabricacion;
         this.precioCosto = precioCosto;
         this.precioVenta = precioVenta;
+    }
+
+    public Producto() {
     }
 
     public String getId() {

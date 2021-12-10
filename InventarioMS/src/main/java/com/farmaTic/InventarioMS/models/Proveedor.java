@@ -3,15 +3,13 @@ import org.springframework.data.annotation.Id;
 
 public class Proveedor {
     @Id
-    private String id;
     private String laboratorio;
     private String nombreDeContacto;
     private String email;
     private Integer telefono;
     private Integer celular;
     
-    public Proveedor(String id, String laboratorio, String nombreDeContacto, String email, Integer telefono, Integer celular) {
-        this.id = id;
+    public Proveedor(String laboratorio, String nombreDeContacto, String email, Integer telefono, Integer celular) {
         this.laboratorio = laboratorio;
         this.nombreDeContacto = nombreDeContacto;
         this.email = email;
@@ -19,13 +17,7 @@ public class Proveedor {
         this.celular = celular;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
+   
 
     public String getLaboratorio() {
         return laboratorio;
