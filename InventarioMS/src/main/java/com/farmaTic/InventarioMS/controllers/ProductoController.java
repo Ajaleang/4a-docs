@@ -1,7 +1,6 @@
 package com.farmaTic.InventarioMS.controllers;
 import java.util.List;
-
-//import com.farmaTic.InventarioMS.exceptions.ProductoNotFoundException;
+import com.farmaTic.InventarioMS.exceptions.ProductoNotFoundException;
 import com.farmaTic.InventarioMS.models.Producto;
 import com.farmaTic.InventarioMS.repositories.ProductoRepository;
 
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ProductoController {
@@ -28,6 +26,9 @@ public class ProductoController {
     @GetMapping("/productos/{nombreMedicamento}")
     public List <Producto> getProductos(@PathVariable String nombreMedicamento) {
         List <Producto> list = ProductoRepository.findAllByNombreMedicamento(nombreMedicamento);
+        if (list.isEmpty()) {
+            throw new ProductoNotFoundException(nombreMedicamento);
+        }
         return list;
        
         
