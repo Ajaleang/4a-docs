@@ -6,13 +6,15 @@ public class Proveedor {
     private String laboratorio;
     private String nombreDeContacto;
     private String email;
+    private String direccion;
     private Integer telefono;
     private Integer celular;
     
-    public Proveedor(String laboratorio, String nombreDeContacto, String email, Integer telefono, Integer celular) {
+    public Proveedor(String laboratorio, String nombreDeContacto, String email,String direccion, Integer telefono, Integer celular) {
         this.laboratorio = laboratorio;
         this.nombreDeContacto = nombreDeContacto;
         this.email = email;
+        this.direccion = direccion;
         this.telefono = telefono;
         this.celular = celular;
     }
@@ -37,6 +39,12 @@ public class Proveedor {
 
     public String getEmail() {
         return email;
+    }
+    public String getDireccion() {
+        return direccion;
+    }
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     public void setEmail(String email) {
