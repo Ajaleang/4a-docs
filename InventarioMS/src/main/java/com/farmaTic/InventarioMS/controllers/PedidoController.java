@@ -19,7 +19,8 @@ public class PedidoController {
         return pedidoRepository.save(pedido);
     }
     @DeleteMapping("/pedidos/{id}")
-    void borrarPedido(@PathVariable String id) {
+    String borrarPedido(@PathVariable String id) {
         pedidoRepository.deleteById(id);
+        return "Pedido eliminado";
     }
 }    
